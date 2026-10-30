@@ -1,0 +1,16 @@
+{
+  "source": "Lumior product skills snapshot, 2026-10-30",
+  "originalGstackRevision": null,
+  "upstreamAuditRevision": "b61744517cc35b3109f06a54d64857be27f60c4e",
+  "productSourceSha256": {
+    "skills/mba-topic/SKILL.md": "f9d3afdaa36760ee034d7db7ac88a8dab1f9ce8ebbe7a52c3526c10bf4261af1",
+    "skills/mba-lit/pdftext.swift": "5620d76d541d1b63c55f4752e0aaaae9c1f20aa11fae99627c3f2bd5e0130899",
+    "skills/mba-lit/SKILL.md": "cccd903ff066996770b6fead76662a081f3a58b2c65e945a927649667eb0035d",
+    "skills/mba-review/SKILL.md": "85448c9c3c040f3c973d0f9006279cbe1f75d153c70736bb6b4254c11e822f2e",
+    "skills/mba-proposal/SKILL.md": "3208e18bc872fac4c867bc8f81ed257d55ca54d9b562d6e693ba4f6791407630"
+  },
+  "standaloneChanges": [
+    "Add provenance headers; fix stale mba-review not-yet-written notice.",
+    "Move version into metadata for standard Skill frontmatter compatibility; product files unchanged."
+  ]
+}
