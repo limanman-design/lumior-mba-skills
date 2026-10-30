@@ -15,6 +15,37 @@
 | `/mba-review` | 按概念组织文献，确认主张，再生成或评审综述 | 综述提纲、草稿与评审记录 |
 | `/mba-proposal` | 对照学院模板，确认方法、数据和进度，模拟答辩 | 开题提纲、草稿与答辩记录 |
 
+## 适用哪些模型与工具
+
+这套 Skill 是研究流程说明，不绑定某个模型品牌。Claude、GPT、Gemini、Kimi、DeepSeek、Qwen 等模型可以作为候选，但具体版本能否可靠执行，取决于指令遵循、中文研究理解、上下文容量，以及宿主提供的工具；本项目尚未逐一验证这些模型，以上不是兼容认证或效果排名。
+
+需要区分“模型能读懂”与“工具能完整执行”：
+
+| 使用环境 | 可以怎样使用 | 限制 |
+| --- | --- | --- |
+| Claude Code 风格的文件 Agent | 按下文安装，读取资料并保存阶段成果 | 当前文本按这类工具编写；仍需实际验证所用版本 |
+| 其他具备 Skill、文件读写和资料读取能力的 Agent | 适配工具名称、安装路径与提问方式后使用 | 不保证原样安装即可运行；PDF 提取需单独适配 |
+| 普通聊天窗口 | 提供完整 Skill 文本和材料，按步骤对话，复制保存成果 | 链接可能无法读取，也未必能持续保存文件；不能据 AI 说“已保存”判断真的落盘 |
+| Lumior 内置论文助手 | 使用应用中的论文流程和卡片 | 可选模型由 Lumior 当前配置决定，不由独立仓库决定 |
+
+Skill 格式与宿主能力可参见 [Agent Skills 官方说明](https://github.com/agentskills/agentskills/blob/main/docs/home.mdx) 和 [Claude Skills 文档](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)。
+
+## 一句话开始
+
+复制下面这一句给能读取网页或仓库内容的 AI：
+
+> 请读取 https://github.com/limanman-design/lumior-mba-skills 的 README 和 skills/mba-topic/SKILL.md，按这套流程带我做 MBA 选题，一次只问一个问题；先说明你是否已完整读到 Skill、能否读写当前论文项目文件，不能读取时请让我提供全文，不能保存时请输出可复制的 Markdown，不要宣称已保存。
+
+这句话用于开始使用，不等于自动安装，也不会自动让聊天窗口获得文件权限。无法读取链接时，打开仓库中的 `skills/mba-topic/SKILL.md`，将完整内容复制或作为文件提供给 AI。后续阶段再提供对应 Skill 和此前的选题卡、文献矩阵；不要只给一个仓库链接就假定它已读完全部流程。
+
+## thesis/ 在哪里保存
+
+独立文件 Agent 使用时，`thesis/topic.md`、`thesis/lit-matrix.md` 等是当前论文项目目录中的实际文件，前提是宿主有写入权限且确实执行了文件写入。
+
+Lumior 画板模式沿用这些路径作为逻辑名称：`thesis/topic.md` 对应选题卡，`thesis/lit-matrix.md` 对应文献矩阵卡。运行前从当前卡片构造项目文件快照；修改已有成果先形成待采纳建议，用户接受后再替换卡片并保存历史。相关状态随工作区保存，并不因此在电脑上自动创建一套同名 Markdown 目录。
+
+所以卡片正文中出现 `thesis/topic.md` 是流程的文件命名约定，不是磁盘路径或保存成功凭据。独立仓库的文件与 Lumior 卡片也不会自动双向同步。
+
 ## 开始使用
 
 这份版本保留 Claude Code 风格的工具名称与 `/命令`。需要能读写项目文件的 Agent、用户自己的模型服务及可读取的论文材料；没有附带 API Key 或免费额度。尚未完成各宿主的真实端到端认证。
